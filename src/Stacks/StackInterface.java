@@ -34,4 +34,13 @@ All my changes Start here
      @return The lowest value
      */
     public Integer removeMin();
+
+    /**
+     * "accepts a stack of integers and checks if the
+     * elements in the stack occur in ascending
+     * (non-decreasing) order from top to bottom"
+     @retrun true if the elements in the stack
+     occur in ascending (non-decreasing) order from top to bottom
+     */
+    public boolean isSorted();
 }

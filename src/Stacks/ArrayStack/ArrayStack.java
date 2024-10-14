@@ -119,7 +119,7 @@ public final class ArrayStack<T> implements StackInterface<T> {
         }
     }
 /*
-All Changes start here
+All Changes 10/12 start here
 StackInterface<String> myStack = new ArrayStack<>();
  */
 
@@ -146,7 +146,47 @@ StackInterface<String> myStack = new ArrayStack<>();
         }
         return min_val;
     }
+/*
+All Changes 10/13 start here
+StackInterface<String> myStack = new ArrayStack<>();
+ */
 
+   public int getTopIndex(){
+        return topIndex;
+   }
+
+    public boolean isSorted() {
+
+
+        if (isEmpty() || topIndex == 0) {
+            return true;
+        }
+
+        StackInterface<T> storage_Stack = new ArrayStack<>();
+        boolean isSorted = true;
+
+        T prev_Val = pop();
+        storage_Stack.push(prev_Val);
+
+
+        while (!isEmpty()) {
+            T current_data = pop();
+
+            if ((Integer) current_data < (Integer) prev_Val) {
+                isSorted = false;
+            }
+
+            storage_Stack.push(current_data);
+            prev_Val = current_data;
+
+        }
+
+        while (!storage_Stack.isEmpty()) {
+            push(storage_Stack.pop());
+        }
+
+        return isSorted;
+    }
 
 
 
